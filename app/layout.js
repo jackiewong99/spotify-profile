@@ -12,7 +12,7 @@ const circular = localFont({
       style: 'normal',
     },
     {
-      path: './font/CircularStd-Bold.woff2',
+      path: './fonts/CircularStd-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
