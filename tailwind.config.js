@@ -7,7 +7,10 @@ module.exports = {
   ],
   theme: {
     colors: {
-      white: '#ffffff',
+      white: {
+        100: '#ffffff',
+        200: '#cccccc',
+      },
       black: '#0a0a0a',
       gray: {
         400: '#b3b3b3',
@@ -16,7 +19,10 @@ module.exports = {
         800: '#292929',
         900: '#181818',
       },
-      green: '#1ed760',
+      green: {
+        500: '#1ed760',
+        600: '#139140',
+      },
       red: {
         500: '#f15e6c',
         600: '#e91429',
