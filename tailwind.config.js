@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -32,6 +35,11 @@ module.exports = {
         600: '#0d72ea',
       },
       orange: '#ffa42b',
+    },
+    extend: {
+      fontFamily: {
+        circular: ['Circular Std', defaultTheme.fontFamily.sans],
+      },
     },
   },
   plugins: [],
