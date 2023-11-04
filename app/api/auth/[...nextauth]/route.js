@@ -1,14 +1,29 @@
 import NextAuth from 'next-auth/next';
 import SpotifyProvider from 'next-auth/providers/spotify';
-import { getRefreshToken } from '@/components/utils/profile';
 
 const refreshAccessToken = async token => {
   try {
-    const refreshedTokens = await getRefreshToken(token);
+    const refreshToken = token.refreshToken;
+    const url = 'https://accounts.spotify.com/api/token';
+    const payload = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        grant_type: 'refresh_token',
+        refresh_token: refreshToken,
+        client_id: process.env.SPOTIFY_CLIENT_ID,
+        client_secret: process.env.SPOTIFY_CLIENT_SECRET,
+      }),
+    };
+
+    const body = await fetch(url, payload);
+    const refreshedTokens = await body.json();
 
     return {
       ...token,
-      accessToken: refreshedTokens.acecss_token,
+      accessToken: refreshedTokens.access_token,
       accessTokenExpires: Date.now + refreshedTokens.expires_in * 1000,
       refreshToken: refreshedTokens.refresh_token ?? token.refreshToken,
     };
@@ -20,6 +35,7 @@ const refreshAccessToken = async token => {
     };
   }
 };
+
 const scope =
   'user-read-private user-read-email playlist-read-private playlist-read-collaborative streaming user-library-read user-top-read user-read-playback-state user-modify-playback-state user-read-currently-playing user-read-recently-played user-follow-read';
 
