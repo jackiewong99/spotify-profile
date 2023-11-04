@@ -5,10 +5,15 @@ import LoginPrompt from './components/LoginPrompt';
 import Profile from './components/Profile';
 
 const Home = () => {
-  const { data } = useSession();
+  const { data, status } = useSession();
+
   return (
     <div className='w-screen'>
-      {data?.user?.accessToken ? <Profile data={data} /> : <LoginPrompt />}
+      {data?.user?.accessToken && status === 'authenticated' ? (
+        <Profile data={data} />
+      ) : (
+        <LoginPrompt />
+      )}
     </div>
   );
 };
