@@ -3,8 +3,8 @@ const IconExternal = () => (
     xmlns='http://www.w3.org/2000/svg'
     role='img'
     viewBox='0 0 194.818 194.818'
-    width='30px'
-    height='30px'
+    width='14px'
+    height='14px'
   >
     <title>External</title>
     <g>
