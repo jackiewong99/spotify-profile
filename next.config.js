@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/image/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'wrapped-images.spotifycdn.com',
+        port: '',
+        pathname: '/image/**',
+      },
     ],
   },
 };
