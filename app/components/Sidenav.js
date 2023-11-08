@@ -17,7 +17,7 @@ import {
 const Sidenav = () => {
   const pathname = usePathname();
   return (
-    <nav className='bg-black text-xs font-normal w-28 flex flex-col items-center justify-between py-12'>
+    <nav className='bg-black text-xs font-normal w-28 h-screen flex flex-col items-center justify-between py-12 fixed'>
       <div className='basis-2/12'>
         <Link href='/'>
           <Image
