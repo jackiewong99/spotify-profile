@@ -15,19 +15,21 @@ const Navbar = ({ user }) => {
   return (
     <nav className='bg-gray-500/0 w-2/6 h-16 absolute top-0 right-0 mt-4'>
       <ul className='flex items-center justify-end pr-5'>
-        <li className='bg-white-100 text-black rounded-full mr-6 py-2 px-5 text-sm font-bold tracking-wide'>
-          <Link href='https://www.spotify.com/us/premium/' target='_blank'>
-            Explore Premium
-          </Link>
-        </li>
-        <li className='bg-gray-500/30 text-white-100 rounded-full mr-6 py-2 px-5 text-sm font-normal tracking-wide'>
+        {user.product === 'free' && (
+          <li className='bg-white-100 text-black rounded-full mr-6 py-2 px-5 text-sm font-bold tracking-wide hover:scale-105 hover:transition-all active:text-green-600 ease-in duration-50'>
+            <Link href='https://www.spotify.com/us/premium/' target='_blank'>
+              Explore Premium
+            </Link>
+          </li>
+        )}
+        <li className='bg-gray-500/30 text-white-100 rounded-full mr-6 py-2 px-5 text-sm font-normal tracking-wide hover:scale-105 hover:transition-all active:text-green-600 ease-in duration-50'>
           <Link href='https://www.spotify.com/us/download/' target='_blank'>
             Install App
           </Link>
         </li>
         <li>
           <button
-            className='bg-gray-500/30 rounded-full p-1.5'
+            className='bg-gray-500/30 rounded-full p-1.5 hover:bg-gray-500/70 hover:scale-105 hover:transition-all active:opacity-30 active:scale-95 ease-in duration-50'
             onClick={() => setToggleDropdown(!toggleDropdown)}
           >
             <Image
@@ -43,7 +45,7 @@ const Navbar = ({ user }) => {
               <Link
                 href={account_url}
                 target='_blank'
-                className='block py-3 pl-3 pr-3 rounded-md w-full hover:bg-gray-800 hover:transition-all ease-in-out duration-100'
+                className='block py-3 pl-3 pr-3 rounded-md w-full hover:bg-gray-800 hover:transition-all active:opacity-60 ease-in-out duration-100'
               >
                 <div className='flex justify-between items-center fill-white-100'>
                   <p>Account</p>
@@ -51,7 +53,7 @@ const Navbar = ({ user }) => {
                 </div>
               </Link>
               <button
-                className='py-3 pl-3 pr-20 rounded-md hover:bg-gray-800 hover:transition-all ease-in-out duration-100'
+                className='py-3 pl-3 pr-20 rounded-md hover:bg-gray-800 hover:transition-all active:opacity-60 ease-in-out duration-100'
                 onClick={() =>
                   signOut({ callbackUrl: 'http://localhost:3000/' })
                 }
