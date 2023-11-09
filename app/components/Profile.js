@@ -11,7 +11,6 @@ import PlaylistCard from './PlaylistCard';
 import ArtistCard from './ArtistCard';
 
 /*
-    topArtists: topArtists,
     topTracks: topTracks,
 */
 
@@ -101,7 +100,7 @@ const Profile = ({ data }) => {
             id='playlist-carousel'
             className='cursor-grab'
             drag='x'
-            dragConstraints={{ left: -900, right: 0 }}
+            dragConstraints={{ left: -1800, right: 0 }}
             dragTransition={{ bounceStiffness: 200, bounceDamping: 50 }}
             whileTap={{ cursor: 'grabbing' }}
           >
@@ -130,7 +129,7 @@ const Profile = ({ data }) => {
           <motion.div
             className='cursor-grab'
             drag='x'
-            dragConstraints={{ left: -600, right: 0 }}
+            dragConstraints={{ left: -1600, right: 0 }}
             dragTransition={{ bounceStiffness: 200, bounceDamping: 50 }}
             whileTap={{ cursor: 'grabbing' }}
           >
