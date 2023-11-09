@@ -9,7 +9,12 @@ const PlaylistCard = ({ playlist }) => {
         src={playlist.images[0].url}
         width={240}
         height={240}
+        style={{
+          width: '240px',
+          height: '240px',
+        }}
         alt='Playlist image'
+        className='object-cover'
       />
       <div id='playlist-card-info' className='mt-3 mb-3'>
         <Link
