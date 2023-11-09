@@ -1,44 +1,124 @@
 'use client';
-import { signOut, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { catchErrors } from '@/components/utils/profile';
 import { fetchProfile } from '@/components/utils/profile';
+import { motion } from 'framer-motion';
+// Components
+import Image from 'next/image';
+import Link from 'next/link';
+import Navbar from './Navbar';
+import PlaylistCard from './PlaylistCard';
+
+/*
+    topArtists: topArtists,
+    topTracks: topTracks,
+*/
 
 const Profile = ({ data }) => {
   const [user, setUser] = useState();
+  const [userImg, setUserImg] = useState();
+  const [followedArtists, setFollowedArtists] = useState();
+  const [playlists, setPlaylists] = useState();
+  const [topArtists, setTopArtists] = useState();
+  const [topTracks, setTopTracks] = useState();
+
   useEffect(() => {
     const fetchData = async () => {
       const userInfo = await fetchProfile(data);
-      setUser(userInfo);
+      setUser(userInfo.user);
+      setUserImg(userInfo.user.images[1]);
+      setFollowedArtists(userInfo.followedArtists);
+      setPlaylists(userInfo.playlists);
+      setTopArtists(userInfo.topArtists);
+      setTopTracks(userInfo.topTracks);
+
       console.log(userInfo);
     };
     catchErrors(fetchData());
-  }, []);
+  }, [data]);
+
   return (
-    <>
-      <div className='flex min-h-screen flex-col items-center justify-center text-white-100 bg-gray-800'>
-        {user ? (
-          <div className='flex flex-col items-center'>
-            <h1 className='my-auto text-5xl font-bold'>{`${user.display_name}'s Spotify Profile`}</h1>
-            <h1 className='mt-5 font-normal'>
-              Followers: {user.followers.total}
-            </h1>
-            <h1 className='mt-5 font-normal'>Region: {user.country}</h1>
-            <button
-              onClick={() => signOut({ callbackUrl: 'http://localhost:3000/' })}
-              className='px-8 py-3 mt-8 rounded-full text-base font-normal tracking-wider bg-green-600 transition-all hover:bg-green-700 hover:text-white-200 hover:duration-300'
-            >
-              Sign Out
-            </button>
+    <div
+      id='profile-info'
+      className='flex flex-col items-start min-h-screen text-white-100 bg-gray-800'
+    >
+      {user && (
+        <div>
+          <Navbar user={user} />
+          <div className='flex items-center h-[30vh] w-full mb-28 pt-52 pl-44'>
+            {userImg && (
+              <div className='flex justify-start'>
+                <Image
+                  src={userImg.url}
+                  width={userImg.width}
+                  height={userImg.height}
+                  alt='Profile picture'
+                  className='rounded-full'
+                />
+              </div>
+            )}
+            <div className='flex flex-col justify-start pl-16'>
+              <p className='text-sm'>Profile</p>
+              <h1 className='text-8xl font-bold tracking-tighter'>{`${user.display_name}`}</h1>
+              <div className='flex justify-start items-center mt-5'>
+                <div className='flex flex-col items-center justify-center'>
+                  <h2 className='text-2xl text-green-600 font-semibold'>
+                    {user.followers.total}
+                  </h2>
+                  <h4 className='text-gray-500 font-normal text-sm tracking-wide'>
+                    Followers
+                  </h4>
+                </div>
+                <div className='flex flex-col items-center justify-center ml-12'>
+                  <h2 className='text-2xl text-green-600 font-semibold'>
+                    {followedArtists.artists.total}
+                  </h2>
+                  <h4 className='text-gray-500 font-normal text-sm tracking-wide'>
+                    Following
+                  </h4>
+                </div>
+                <div className='flex flex-col items-center justify-center ml-12'>
+                  <h2 className='text-2xl text-green-600 font-semibold'>
+                    {playlists.total}
+                  </h2>
+                  <h4 className='text-gray-500 font-normal text-sm tracking-wide'>
+                    Playlists
+                  </h4>
+                </div>
+              </div>
+            </div>
           </div>
-        ) : (
-          <h1>
-            Uh oh, something went wrong. You do not have authorized access to
-            this page.
-          </h1>
+        </div>
+      )}
+      <div
+        id='playlists'
+        className='flex flex-col w-full mt-32 mb-40 pl-44 overflow-hidden'
+      >
+        <h2 className='text-3xl font-normal mb-8'>Playlists</h2>
+        {playlists && (
+          <motion.div
+            id='playlist-carousel'
+            className='cursor-grab'
+            drag='x'
+            dragConstraints={{ left: -900, right: 0 }}
+            dragTransition={{ bounceStiffness: 200, bounceDamping: 50 }}
+            whileTap={{ cursor: 'grabbing' }}
+          >
+            <motion.div id='playlist-inner-carousel' className='flex gap-5'>
+              {playlists.items.map((playlist, i) => {
+                return <PlaylistCard playlist={playlist} key={i} />;
+              })}
+              <motion.div className='w-[180px] h-[255px] flex justify-center items-center'>
+                <Link href='/playlists'>
+                  <h5>See more</h5>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         )}
       </div>
-    </>
+      <div id='top-artists'></div>
+    </div>
   );
 };
 
