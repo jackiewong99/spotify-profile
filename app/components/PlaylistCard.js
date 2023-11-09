@@ -16,12 +16,14 @@ const PlaylistCard = ({ playlist }) => {
         alt='Playlist image'
         className='object-cover'
       />
-      <div id='playlist-card-info' className='mt-3 mb-3'>
+      <div id='playlist-card-info' className='flex flex-col mt-3 mb-3'>
         <Link
           href={`/playlists/${playlist.id}`}
           className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
         >
-          <h5 className='text-lg'>{playlist.name}</h5>
+          <h5 className='max-w-[240px] text-lg line-clamp-1'>
+            {playlist.name}
+          </h5>
         </Link>
         <h6 className='text-gray-500 text-sm'>{playlist.owner.display_name}</h6>
       </div>
