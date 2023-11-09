@@ -20,6 +20,12 @@ const nextConfig = {
         port: '',
         pathname: '/image/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'image-cdn-fa.spotifycdn.com',
+        port: '',
+        pathname: '/image/**',
+      },
     ],
   },
 };
