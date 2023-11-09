@@ -3,11 +3,11 @@ import Image from 'next/image';
 
 const PlaylistCard = ({ playlist }) => {
   return (
-    <motion.div className='bg-black p-5 rounded-md'>
+    <motion.div className='bg-black rounded-md p-5 shrink-0'>
       <Image
         src={playlist.images[0].url}
-        width={300}
-        height={300}
+        width={240}
+        height={240}
         alt='Playlist image'
       />
       <div id='playlist-card-info' className='mt-3 mb-3'>
