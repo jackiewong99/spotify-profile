@@ -108,8 +108,11 @@ const Profile = ({ data }) => {
               {playlists.items.map((playlist, i) => {
                 return <PlaylistCard playlist={playlist} key={i} />;
               })}
-              <motion.div className='w-[180px] h-[255px] flex justify-center items-center'>
-                <Link href='/playlists'>
+              <motion.div className='flex justify-center items-center flex-shrink-0 w-40'>
+                <Link
+                  href='/playlists'
+                  className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
+                >
                   <h5>See more</h5>
                 </Link>
               </motion.div>
