@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from './Navbar';
 import PlaylistCard from './PlaylistCard';
+import ArtistCard from './ArtistCard';
 
 /*
     topArtists: topArtists,
@@ -92,7 +93,7 @@ const Profile = ({ data }) => {
       )}
       <div
         id='playlists'
-        className='flex flex-col w-full mt-32 mb-40 pl-44 overflow-hidden'
+        className='flex flex-col w-full mt-32 mb-28 pl-44 overflow-hidden'
       >
         <h2 className='text-3xl font-normal mb-8'>Playlists</h2>
         {playlists && (
@@ -120,7 +121,35 @@ const Profile = ({ data }) => {
           </motion.div>
         )}
       </div>
-      <div id='top-artists'></div>
+      <div
+        id='top-artists'
+        className='flex flex-col w-full my-20 pl-44 overflow-hidden'
+      >
+        <h2 className='text-3xl font-normal mb-8'>Your Top Artists</h2>
+        {topArtists && (
+          <motion.div
+            className='cursor-grab'
+            drag='x'
+            dragConstraints={{ left: -600, right: 0 }}
+            dragTransition={{ bounceStiffness: 200, bounceDamping: 50 }}
+            whileTap={{ cursor: 'grabbing' }}
+          >
+            <motion.div className='flex gap-7'>
+              {topArtists.items.map((artist, i) => {
+                return <ArtistCard artist={artist} key={i} />;
+              })}
+              <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
+                <Link
+                  href='/top_artists'
+                  className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
+                >
+                  <h5>See more</h5>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </div>
     </div>
   );
 };
