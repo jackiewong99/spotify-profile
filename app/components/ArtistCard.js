@@ -16,7 +16,7 @@ const ArtistCard = ({ artist }) => {
             height: '240px',
           }}
           alt='Artist image'
-          className='rounded-full object-cover p-2 hover:border-4 hover:border-gray-600/50'
+          className='border-4 border-transparent border-solid rounded-full object-cover p-2 hover:border-gray-600 hover:transition-all ease-in duration-100'
         />
       </Link>
       <div className='flex justify-center mt-3'>
