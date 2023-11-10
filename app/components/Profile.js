@@ -1,10 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import {
-  catchErrors,
-  fetchProfile,
-  formatDuration,
-} from '@/components/utils/profile';
+import { catchErrors, fetchProfile } from '@/components/utils/profile';
 import { motion } from 'framer-motion';
 // Components
 import Image from 'next/image';
@@ -13,10 +9,6 @@ import Navbar from './Navbar';
 import PlaylistCard from './PlaylistCard';
 import ArtistCard from './ArtistCard';
 import TrackCard from './TrackCard';
-
-/*
-    topTracks: topTracks,
-*/
 
 const Profile = ({ data }) => {
   const [user, setUser] = useState();
