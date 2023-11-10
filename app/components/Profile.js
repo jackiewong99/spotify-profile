@@ -1,7 +1,10 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { catchErrors } from '@/components/utils/profile';
-import { fetchProfile } from '@/components/utils/profile';
+import {
+  catchErrors,
+  fetchProfile,
+  formatDuration,
+} from '@/components/utils/profile';
 import { motion } from 'framer-motion';
 // Components
 import Image from 'next/image';
@@ -9,6 +12,7 @@ import Link from 'next/link';
 import Navbar from './Navbar';
 import PlaylistCard from './PlaylistCard';
 import ArtistCard from './ArtistCard';
+import TrackCard from './TrackCard';
 
 /*
     topTracks: topTracks,
@@ -113,7 +117,7 @@ const Profile = ({ data }) => {
                   href='/playlists'
                   className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
                 >
-                  <h5>See more</h5>
+                  <h5>SEE MORE</h5>
                 </Link>
               </motion.div>
             </motion.div>
@@ -142,11 +146,31 @@ const Profile = ({ data }) => {
                   href='/top_artists'
                   className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
                 >
-                  <h5>See more</h5>
+                  <h5>SEE MORE</h5>
                 </Link>
               </motion.div>
             </motion.div>
           </motion.div>
+        )}
+      </div>
+      <div
+        id='top-tracks'
+        className='flex flex-col w-[95%] my-20 pl-44 overflow-hidden'
+      >
+        <h2 className='text-3xl font-normal mb-8'>Your Top Tracks</h2>
+        {topTracks && (
+          <div className='grid grid-cols-2 gap-7 w-full'>
+            <div id='tracks-col-1'>
+              {topTracks.items.slice(0, 5).map((track, i) => {
+                return <TrackCard track={track} key={i} />;
+              })}
+            </div>
+            <div id='tracks-col-2'>
+              {topTracks.items.slice(5, 10).map((track, i) => {
+                return <TrackCard track={track} key={i} />;
+              })}
+            </div>
+          </div>
         )}
       </div>
     </div>

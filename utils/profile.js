@@ -1,3 +1,10 @@
+// Format song duration from ms to "00 min : 00 sec"
+export const formatDuration = millis => {
+  const minutes = Math.floor(millis / 60000);
+  const seconds = ((millis % 60000) / 1000).toFixed(0);
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
 // Spotify API calls
 const getUser = async headers => {
   const result = await fetch('https://api.spotify.com/v1/me', headers);
