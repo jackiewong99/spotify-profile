@@ -115,7 +115,7 @@ const Profile = ({ data }) => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-[280px]'>
                 <Link
                   href='/playlists'
-                  className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
+                  className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -144,7 +144,7 @@ const Profile = ({ data }) => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
                 <Link
                   href='/top_artists'
-                  className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
+                  className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -157,7 +157,15 @@ const Profile = ({ data }) => {
         id='top-tracks'
         className='flex flex-col w-[95%] my-20 pl-44 overflow-hidden'
       >
-        <h2 className='text-3xl font-normal mb-8'>Your Top Tracks</h2>
+        <div className='flex justify-between items-center w-full mb-8'>
+          <h2 className='text-3xl font-normal'>Your Top Tracks</h2>
+          <Link
+            href='/top_tracks'
+            className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+          >
+            <h5>SEE MORE</h5>
+          </Link>
+        </div>
         {topTracks && (
           <div className='grid grid-cols-2 gap-7 w-full'>
             <div id='tracks-col-1'>
