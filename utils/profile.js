@@ -65,6 +65,18 @@ export const fetchProfile = async data => {
   };
 };
 
+export const fetchUserOnly = async data => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const user = await getUser(headers);
+
+  return { user: user };
+};
+
 // Catch errors from data fetch attempt
 export const catchErrors = fn =>
   function (...args) {
