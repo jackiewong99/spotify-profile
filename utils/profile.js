@@ -21,7 +21,7 @@ const getFollowedArtists = async headers => {
 
 const getUserPlaylists = async headers => {
   const result = await fetch(
-    'https://api.spotify.com/v1/me/playlists?offset=0&limit=10',
+    'https://api.spotify.com/v1/me/playlists?offset=0&limit=50',
     headers,
   );
   return await result.json();
@@ -37,7 +37,7 @@ const getTopArtists = async headers => {
 
 const getTopTracks = async headers => {
   const result = await fetch(
-    'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=10&time_range=long_term',
+    'https://api.spotify.com/v1/me/top/tracks?offset=0&limit=50&time_range=long_term',
     headers,
   );
   return await result.json();
