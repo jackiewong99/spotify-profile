@@ -1,5 +1,4 @@
 'use client';
-// Components
 import LoginPrompt from './components/LoginPrompt';
 
 const Home = () => {
