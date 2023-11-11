@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 // Components
 import Image from 'next/image';
 import Link from 'next/link';
-import Navbar from './Navbar';
 import PlaylistCard from './PlaylistCard';
 import ArtistCard from './ArtistCard';
 import TrackCard from './TrackCard';
@@ -43,7 +42,6 @@ const User = () => {
     >
       {user && (
         <div>
-          <Navbar user={user} />
           <div className='flex items-center h-[30vh] w-full mb-28 pt-52 pl-44'>
             {userImg && (
               <div className='flex justify-start'>
@@ -110,7 +108,7 @@ const User = () => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-[280px]'>
                 <Link
                   href='/playlists'
-                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full text-sm hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -139,7 +137,7 @@ const User = () => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
                 <Link
                   href='/top_artists'
-                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full text-sm hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -156,7 +154,7 @@ const User = () => {
           <h2 className='text-3xl font-normal'>Your Top Tracks</h2>
           <Link
             href='/top_tracks'
-            className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+            className='px-4 py-2 border-solid border-white-100 border-2 rounded-full text-sm hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
           >
             <h5>SEE MORE</h5>
           </Link>
