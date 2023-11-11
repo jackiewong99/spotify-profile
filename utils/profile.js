@@ -89,6 +89,18 @@ export const fetchTopArtistsOnly = async data => {
   return { artists: artists };
 };
 
+export const fetchPlaylistsOnly = async data => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const playlists = await getUserPlaylists(headers);
+
+  return { playlists: playlists };
+};
+
 // Catch errors from data fetch attempt
 export const catchErrors = fn =>
   function (...args) {
