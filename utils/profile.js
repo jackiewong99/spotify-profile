@@ -29,7 +29,7 @@ const getUserPlaylists = async headers => {
 
 const getTopArtists = async headers => {
   const result = await fetch(
-    'https://api.spotify.com/v1/me/top/artists?offset=0&limit=10&time_range=long_term',
+    'https://api.spotify.com/v1/me/top/artists?offset=0&limit=50&time_range=long_term',
     headers,
   );
   return await result.json();
@@ -75,6 +75,18 @@ export const fetchUserOnly = async data => {
   const user = await getUser(headers);
 
   return { user: user };
+};
+
+export const fetchTopArtistsOnly = async data => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const artists = await getTopArtists(headers);
+
+  return { artists: artists };
 };
 
 // Catch errors from data fetch attempt
