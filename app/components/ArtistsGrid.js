@@ -23,8 +23,8 @@ const ArtistsGrid = () => {
       <h1 className='text-3xl mb-8'>Your Top Artists</h1>
       {artists && (
         <div className='flex gap-7 flex-wrap mb-20'>
-          {artists.map((artist, i) => {
-            return <ArtistCard artist={artist} key={i} />;
+          {artists.map(artist => {
+            return <ArtistCard artist={artist} key={artist.id} />;
           })}
         </div>
       )}
