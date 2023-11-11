@@ -19,7 +19,7 @@ const Sidenav = () => {
   return (
     <nav className='bg-black text-xs font-normal w-28 h-screen flex flex-col items-center justify-between py-12  z-10 fixed'>
       <div className='basis-2/12'>
-        <Link href='/'>
+        <Link href='https://open.spotify.com/?' target='_blank'>
           <Image
             src={spotifyIcon}
             width={60}
@@ -31,9 +31,11 @@ const Sidenav = () => {
       </div>
       <div className='flex flex-col basis-4/6 items-center justify-evenly'>
         <Link
-          href='/'
+          href='/profile'
           className={`${
-            pathname === '/' ? 'text-green-600 fill-green-600' : 'fill-gray-500'
+            pathname === '/profile'
+              ? 'text-green-600 fill-green-600'
+              : 'fill-gray-500'
           } text-gray-500 hover:text-white-100 hover:fill-white-100 active:text-green-700 active:fill-green-700 hover:transition-all ease-in duration-200`}
         >
           <div className='flex flex-col justify-between items-center'>
