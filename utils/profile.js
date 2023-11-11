@@ -65,6 +65,7 @@ export const fetchProfile = async data => {
   };
 };
 
+// Fetch specific categories for each route segment
 export const fetchUserOnly = async data => {
   const token = data.user.accessToken;
   const headers = {
