@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 import { catchErrors, fetchProfile } from '@/components/utils/profile';
 import { motion } from 'framer-motion';
 // Components
@@ -10,7 +11,9 @@ import PlaylistCard from './PlaylistCard';
 import ArtistCard from './ArtistCard';
 import TrackCard from './TrackCard';
 
-const Profile = ({ data }) => {
+const User = () => {
+  const { data } = useSession();
+
   const [user, setUser] = useState();
   const [userImg, setUserImg] = useState();
   const [followedArtists, setFollowedArtists] = useState();
@@ -36,7 +39,7 @@ const Profile = ({ data }) => {
   return (
     <div
       id='profile-info'
-      className='flex flex-col items-start min-h-screen text-white-100 bg-gray-800'
+      className='flex flex-col items-start min-h-screen w-full text-white-100 bg-gray-800'
     >
       {user && (
         <div>
@@ -107,7 +110,7 @@ const Profile = ({ data }) => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-[280px]'>
                 <Link
                   href='/playlists'
-                  className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -136,7 +139,7 @@ const Profile = ({ data }) => {
               <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
                 <Link
                   href='/top_artists'
-                  className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+                  className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
                 >
                   <h5>SEE MORE</h5>
                 </Link>
@@ -153,7 +156,7 @@ const Profile = ({ data }) => {
           <h2 className='text-3xl font-normal'>Your Top Tracks</h2>
           <Link
             href='/top_tracks'
-            className='px-4 py-3 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
+            className='px-4 py-2 border-solid border-white-100 border-2 rounded-full hover:bg-white-100 hover:text-black hover:transition-all ease-in duration-100'
           >
             <h5>SEE MORE</h5>
           </Link>
@@ -177,4 +180,4 @@ const Profile = ({ data }) => {
   );
 };
 
-export default Profile;
+export default User;
