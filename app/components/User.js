@@ -102,8 +102,8 @@ const User = () => {
             whileTap={{ cursor: 'grabbing' }}
           >
             <motion.div id='playlist-inner-carousel' className='flex gap-5'>
-              {playlists.items.map((playlist, i) => {
-                return <PlaylistCard playlist={playlist} key={i} />;
+              {playlists.items.slice(0, 10).map(playlist => {
+                return <PlaylistCard playlist={playlist} key={playlist.id} />;
               })}
               <motion.div className='flex justify-center items-center flex-shrink-0 w-[280px]'>
                 <Link
@@ -131,8 +131,8 @@ const User = () => {
             whileTap={{ cursor: 'grabbing' }}
           >
             <motion.div className='flex gap-7'>
-              {topArtists.items.slice(0, 10).map((artist, i) => {
-                return <ArtistCard artist={artist} key={i} />;
+              {topArtists.items.slice(0, 10).map(artist => {
+                return <ArtistCard artist={artist} key={artist.id} />;
               })}
               <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
                 <Link
@@ -162,13 +162,13 @@ const User = () => {
         {topTracks && (
           <div className='grid grid-cols-2 gap-7 w-full'>
             <div id='tracks-col-1'>
-              {topTracks.items.slice(0, 5).map((track, i) => {
-                return <TrackCard track={track} key={i} />;
+              {topTracks.items.slice(0, 5).map(track => {
+                return <TrackCard track={track} key={track.id} />;
               })}
             </div>
             <div id='tracks-col-2'>
-              {topTracks.items.slice(5, 10).map((track, i) => {
-                return <TrackCard track={track} key={i} />;
+              {topTracks.items.slice(5, 10).map(track => {
+                return <TrackCard track={track} key={track.id} />;
               })}
             </div>
           </div>
