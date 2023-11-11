@@ -131,7 +131,7 @@ const User = () => {
             whileTap={{ cursor: 'grabbing' }}
           >
             <motion.div className='flex gap-7'>
-              {topArtists.items.map((artist, i) => {
+              {topArtists.items.slice(0, 10).map((artist, i) => {
                 return <ArtistCard artist={artist} key={i} />;
               })}
               <motion.div className='flex justify-center items-center flex-shrink-0 w-60'>
