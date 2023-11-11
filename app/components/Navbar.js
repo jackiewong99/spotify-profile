@@ -54,11 +54,11 @@ const Navbar = () => {
             </button>
 
             {toggleDropdown && (
-              <div className='bg-gray-500/30 rounded-md shadow-lg shadow-black absolute right-0 float-right p-1 mt-3 mr-5 text-left text-sm z-[1]'>
+              <div className='bg-gray-500/30 rounded-md shadow-lg shadow-black absolute right-0 float-right p-1 mt-3 mr-5 text-left text-white-100 text-sm z-[1]'>
                 <Link
                   href={account_url}
                   target='_blank'
-                  className='block py-3 pl-3 pr-3 rounded-md w-full hover:bg-gray-800 hover:transition-all active:opacity-60 ease-in-out duration-100'
+                  className='block py-3 pl-3 pr-3 rounded-md w-full hover:bg-gray-800/60 hover:transition-all active:opacity-60 ease-in-out duration-100'
                 >
                   <div className='flex justify-between items-center fill-white-100'>
                     <p>Account</p>
@@ -66,7 +66,7 @@ const Navbar = () => {
                   </div>
                 </Link>
                 <button
-                  className='py-3 pl-3 pr-20 rounded-md hover:bg-gray-800 hover:transition-all active:opacity-60 ease-in-out duration-100'
+                  className='py-3 pl-3 pr-20 rounded-md hover:bg-gray-800/60 hover:transition-all active:opacity-60 ease-in-out duration-100'
                   onClick={() =>
                     signOut({ callbackUrl: 'http://localhost:3000/' })
                   }
