@@ -90,6 +90,18 @@ export const fetchTopArtistsOnly = async data => {
   return { artists: artists };
 };
 
+export const fetchTopTracksOnly = async data => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const tracks = await getTopTracks(headers);
+
+  return { tracks: tracks };
+};
+
 export const fetchPlaylistsOnly = async data => {
   const token = data.user.accessToken;
   const headers = {
