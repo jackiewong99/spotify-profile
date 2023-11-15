@@ -43,6 +43,20 @@ const getTopTracks = async headers => {
   return await result.json();
 };
 
+export const getRecentlyPlayed = async data => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+  const result = await fetch(
+    'https://api.spotify.com/v1/me/player/recently-played',
+    headers,
+  );
+  const recentTracks = await result.json();
+  return { tracks: recentTracks };
+};
+
 export const fetchProfile = async data => {
   const token = data.user.accessToken;
   const headers = {
