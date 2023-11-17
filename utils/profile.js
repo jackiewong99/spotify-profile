@@ -128,6 +128,20 @@ export const fetchPlaylistsOnly = async data => {
   return { playlists: playlists };
 };
 
+// Fetch data for dynamic segments
+export const dynamicSegmentFetch = async (data, urlPath) => {
+  const token = data.user.accessToken;
+  const headers = {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}` },
+  };
+
+  const result = await fetch(`https://api.spotify.com/v1/${urlPath}`, headers);
+  const response = await result.json();
+
+  return { response: response };
+};
+
 // Catch errors from data fetch attempt
 export const catchErrors = fn =>
   function (...args) {
