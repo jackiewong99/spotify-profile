@@ -4,7 +4,7 @@
 
 ---
 
-Built with:
+### 🛠️ Built with:
 
 - [Next.js](https://nextjs.org/)
 - [NextAuth](https://next-auth.js.org/)
@@ -13,12 +13,24 @@ Built with:
 
 ---
 
-First, run the development server:
+### Landing / Root route
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+---
+
+### Profile
+
+---
+
+### User's Top Artists
+
+---
+
+### User's Top Tracks
+
+---
+
+### User's Recently Played Tracks
+
+---
+
+### User's Playlists
