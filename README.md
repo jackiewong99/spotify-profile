@@ -13,7 +13,10 @@
 
 ---
 
+
 ### Landing / Root route
+
+![login_gif](https://github.com/jackiewong99/spotify-profile/assets/51229381/2a32b07a-6ff6-46f8-b7d7-012cf594a189)
 
 https://github.com/jackiewong99/spotify-profile/assets/51229381/1378cc53-e387-4d4a-88af-f17eb4ac61e0
 
