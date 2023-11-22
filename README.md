@@ -15,6 +15,8 @@
 
 ### Landing / Root route
 
+https://github.com/jackiewong99/spotify-profile/assets/51229381/1378cc53-e387-4d4a-88af-f17eb4ac61e0
+
 ---
 
 ### Profile
