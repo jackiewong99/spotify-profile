@@ -7,7 +7,7 @@ const LoginPrompt = () => {
         <h1 className='mb-7 text-4xl font-bold'>Spotify Profile</h1>
         <button
           onClick={() => signIn('spotify', { callbackUrl: '/profile' })}
-          className='px-10 py-4 rounded-full text-base font-normal tracking-[0.15em] bg-green-600 transition-all hover:bg-green-700 hover:text-white-200 hover:duration-300'
+          className='px-10 py-4 rounded-full text-base font-normal tracking-[0.15em] bg-green-600 transition-all hover:bg-green-700/80 hover:text-white-200 ease-in duration-150'
         >
           LOG IN TO SPOTIFY
         </button>
