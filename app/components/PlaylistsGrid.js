@@ -10,17 +10,18 @@ const PlaylistsGrid = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const userPlaylists = await fetchPlaylistsOnly(data);
-      setPlaylists(userPlaylists.playlists);
+      const { playlists } = await fetchPlaylistsOnly(data);
+      setPlaylists(playlists);
     };
 
     catchErrors(fetchData());
   }, [data]);
+
   return (
     <div className='flex flex-col pt-32 pl-44'>
       <h2 className='text-3xl mb-8'>Your Playlists</h2>
       {playlists && (
-        <div className='flex flex-wrap gap-[72px] mb-20'>
+        <div className='flex flex-wrap gap-[40px] mb-20'>
           {playlists.items.map(playlist => {
             return <PlaylistCard playlist={playlist} key={playlist.id} />;
           })}
