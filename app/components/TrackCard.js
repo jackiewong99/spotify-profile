@@ -1,6 +1,7 @@
 import { formatDuration } from '@/components/utils/profile';
 import Image from 'next/image';
 import Link from 'next/link';
+import { IconExternal } from './icons';
 
 const getArtistsList = artists => {
   const names = [];
@@ -8,7 +9,7 @@ const getArtistsList = artists => {
   return names.join(', ');
 };
 
-const TrackCard = ({ track }) => {
+const TrackCard = ({ track, externalUrl }) => {
   const albumCover = track.album.images[2];
   const artists = track.artists;
 
@@ -23,8 +24,8 @@ const TrackCard = ({ track }) => {
           width={albumCover.width}
           height={albumCover.height}
           style={{
-            width: 'auto',
-            height: 'auto',
+            width: '50px',
+            height: '50px',
           }}
           alt='Album cover'
         />
@@ -44,6 +45,17 @@ const TrackCard = ({ track }) => {
       <div className='flex justify-end items-center basis-1/5 text-gray-500'>
         <h5>{formatDuration(track.duration_ms)}</h5>
       </div>
+      {externalUrl && (
+        <div className='flex justify-end items-center basis-[5%] text-gray-500'>
+          <Link
+            href={externalUrl}
+            target='_blank'
+            className='fill-white-100 hover:fill-green-600 hover:transition-all ease-in duration-100'
+          >
+            <IconExternal />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };
