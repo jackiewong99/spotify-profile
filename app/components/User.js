@@ -160,7 +160,7 @@ const User = () => {
           </Link>
         </div>
         {topTracks && (
-          <div className='grid grid-cols-2 gap-7 w-full'>
+          <div className='grid grid-cols-2 gap-7 w-full p-5 rounded-md bg-black'>
             <div id='tracks-col-1'>
               {topTracks.items.slice(0, 5).map(track => {
                 return <TrackCard track={track} key={track.id} />;
