@@ -19,10 +19,10 @@ const TopTracksList = () => {
   }, [data]);
 
   return (
-    <div className='flex flex-col pt-32 pl-44'>
+    <div className='flex flex-col pt-32 pl-44 pr-20'>
       <h2 className='text-3xl mb-8'>Your Top Tracks</h2>
       {trackList && (
-        <div className='flex flex-col justify-center mb-20'>
+        <div className='flex flex-col justify-center mb-20 p-3 rounded-md bg-black'>
           {trackList.items.map(track => {
             return (
               <TrackCard
