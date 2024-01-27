@@ -29,8 +29,6 @@ const User = () => {
       setPlaylists(userInfo.playlists);
       setTopArtists(userInfo.topArtists);
       setTopTracks(userInfo.topTracks);
-
-      console.log(userInfo);
     };
     catchErrors(fetchData());
   }, [data]);
