@@ -30,17 +30,47 @@ const TrackCard = ({ track, externalUrl }) => {
           alt='Album cover'
         />
       </div>
-      <div className='flex flex-col justify-end basis-1/3 ml-5'>
+      <div className='flex flex-col justify-end items-start basis-1/3 ml-5'>
         <Link
           href={`/track/${track.id}`}
           className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
         >
           <h5 className='line-clamp-1'>{track.name}</h5>
         </Link>
-        <h5 className='text-gray-500'>{getArtistsList(artists)}</h5>
+        <div className='flex gap-2'>
+          {artists.map((artist, index) => {
+            if (index === artists.length - 1) {
+              return (
+                <Link
+                  key={artist.id}
+                  href={`/artists/${artist.id}`}
+                  className='text-gray-500 hover:text-white-100 hover:underline hover:underline-offset-1 hover:decoration-solid hover:transition-all ease-in duration-100'
+                >
+                  <h5>{artist.name}</h5>
+                </Link>
+              );
+            }
+
+            return (
+              <Link
+                key={artist.id}
+                href={`/artists/${artist.id}`}
+                className='text-gray-500 hover:text-white-100 hover:underline hover:underline-offset-1 hover:decoration-solid hover:transition-all ease-in duration-100'
+              >
+                <h5>{artist.name}, </h5>
+              </Link>
+            );
+          })}
+        </div>
       </div>
       <div className='flex justify-start items-center basis-1/3 text-gray-500'>
-        <h5 className='line-clamp-1'>{track.album.name}</h5>
+        <Link
+          href={track.album.external_urls.spotify}
+          target='_blank'
+          className='text-gray-500 hover:text-white-100 hover:underline hover:underline-offset-1 hover:decoration-solid hover:transition-all ease-in duration-100'
+        >
+          <h5 className='line-clamp-1'>{track.album.name}</h5>
+        </Link>
       </div>
       <div className='flex justify-end items-center basis-1/5 text-gray-500'>
         <h5>{formatDuration(track.duration_ms)}</h5>
