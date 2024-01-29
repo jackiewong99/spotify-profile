@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { dynamicSegmentFetch, catchErrors } from '@/components/utils/profile';
+import { formatFollowersCount } from '@/components/utils/dataFormat';
 // Components
 import Image from 'next/image';
 import Link from 'next/link';
@@ -62,10 +63,7 @@ const PlaylistPage = ({ params }) => {
               )}
               <div className='flex items-center gap-3 w-full text-gray-500'>
                 <h3>
-                  {playlist.followers.total
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}{' '}
-                  Followers
+                  {formatFollowersCount(playlist.followers.total)} Followers
                 </h3>
                 <span className='text-xs'>&#x2022;</span>
                 {playlist.public ? <h3>Public</h3> : <h3>Private</h3>}
