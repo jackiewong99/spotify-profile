@@ -1,4 +1,4 @@
-import { formatDuration } from '@/components/utils/profile';
+import { formatDuration } from '@/components/utils/dataFormat';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IconExternal } from './icons';
