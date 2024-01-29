@@ -1,3 +1,15 @@
+export const formatFollowersCount = count => {
+  const followers = count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return followers;
+};
+
+// Format song duration from ms to "00 min : 00 sec"
+export const formatDuration = millis => {
+  const minutes = Math.floor(millis / 60000);
+  const seconds = ((millis % 60000) / 1000).toFixed(0);
+  return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+};
+
 export const getPitchKey = note => {
   let key = '';
 
