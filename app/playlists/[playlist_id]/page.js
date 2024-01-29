@@ -35,6 +35,7 @@ const PlaylistPage = ({ params }) => {
               className='object-cover'
             />
             <div className='flex flex-col items-start justify-end pl-12'>
+              <h3 className='text-gray-500 pb-4'>Playlist</h3>
               <h1 className='text-5xl font-bold pb-5'>{playlist.name}</h1>
               {playlist.description !== '' ? (
                 <div className='flex items-center gap-3 w-full text-gray-500 pb-5'>
