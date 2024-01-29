@@ -21,7 +21,7 @@ const ArtistCard = ({ artist }) => {
       </Link>
       <div className='flex justify-center mt-3'>
         <Link
-          href={`/top_artists/${artist.id}`}
+          href={`/artists/${artist.id}`}
           className='hover:underline hover:underline-offset-2 hover:decoration-solid hover:transition-all ease-in duration-100'
         >
           <h5 className='text-lg'>{artist.name}</h5>
