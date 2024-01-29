@@ -1,12 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useSession } from 'next-auth/react';
-import {
-  dynamicSegmentFetch,
-  catchErrors,
-  formatDuration,
-} from '@/components/utils/profile';
-import { getPitchKey } from '@/components/utils/dataFormat';
+import { dynamicSegmentFetch, catchErrors } from '@/components/utils/profile';
+import { formatDuration, getPitchKey } from '@/components/utils/dataFormat';
 // Components
 import Image from 'next/image';
 import Link from 'next/link';
