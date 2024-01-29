@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { dynamicSegmentFetch, catchErrors } from '@/components/utils/profile';
+import { formatFollowersCount } from '@/components/utils/dataFormat';
 import { motion, useAnimate } from 'framer-motion';
 // Components
 import Image from 'next/image';
@@ -83,9 +84,7 @@ const ArtistPage = ({ params }) => {
             </div>
             <div id='followers'>
               <motion.h5 className='text-9xl font-bold text-green-600'>
-                {artist.followers.total
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                {formatFollowersCount(artist.followers.total)}
               </motion.h5>
               <h5 className='text-2xl text-gray-500 pt-3'>Followers</h5>
             </div>
