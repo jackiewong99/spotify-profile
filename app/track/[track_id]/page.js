@@ -49,14 +49,26 @@ const Track = ({ params }) => {
               <h4 className='text-gray-500 pb-2'>Song</h4>
               <h1 className='text-7xl font-bold'>{track.name}</h1>
               <div className='flex items-center gap-3 w-full'>
-                {track.artists.map(artist => {
+                {track.artists.map((artist, index) => {
+                  if (index === track.artists.length - 1) {
+                    return (
+                      <Link
+                        key={artist.id}
+                        href={`/artists/${artist.id}`}
+                        className='hover:underline hover:underline-offset-1 hover:decoration-solid hover:transition-all ease-in duration-100'
+                      >
+                        <h4>{artist.name}</h4>
+                      </Link>
+                    );
+                  }
+
                   return (
                     <Link
                       key={artist.id}
                       href={`/artists/${artist.id}`}
                       className='hover:underline hover:underline-offset-1 hover:decoration-solid hover:transition-all ease-in duration-100'
                     >
-                      <h4>{artist.name}</h4>
+                      <h4>{artist.name}, </h4>
                     </Link>
                   );
                 })}
