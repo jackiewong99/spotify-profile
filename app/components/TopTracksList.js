@@ -13,7 +13,6 @@ const TopTracksList = () => {
     const fetchData = async () => {
       const { tracks } = await fetchTopTracksOnly(data);
       setTrackList(tracks);
-      console.log(tracks);
     };
     catchErrors(fetchData());
   }, [data]);

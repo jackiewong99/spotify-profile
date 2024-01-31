@@ -17,7 +17,6 @@ const PlaylistPage = ({ params }) => {
     const fetchData = async () => {
       const { response } = await dynamicSegmentFetch(data, path);
       setPlaylist(response);
-      console.log(response);
     };
     catchErrors(fetchData());
   }, [data, path]);
